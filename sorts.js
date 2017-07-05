@@ -38,6 +38,32 @@ var bubblesort = function(array){
 
 };
 
+var merge = function(left, right){
+
+  var array = [];
+
+  while( left.length !== 0 || right.length !== 0 ){
+
+    if( left.length !== 0 && right.length !== 0 ){
+
+      if(left[0] < right[0] ){
+        array.push( left.shift() );
+      } else {
+        array.push( right.shift() );
+      }
+
+    } else if( left.length !== 0) {
+      array.push( left.shift() );
+    } else if( right.length !== 0 ) {
+      array.push( right.shift() );
+    }
+
+  }
+
+  return array;
+
+};
+
 var mergesort = function(array){
 
   if( array.length < 2 ){
@@ -45,10 +71,10 @@ var mergesort = function(array){
   }
 
   var midpoint = Math.floor(array.length / 2);
-  var left = [];
-  var right = [];
+  var left = array.slice(0, midpoint);
+  var right = array.slice(midpoint, array.length);
 
-
+  return merge( mergesort(left), mergesort(right) );
 
 
 };
