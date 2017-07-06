@@ -82,23 +82,47 @@ var mergesort = function(array){
 var insertionsort = function(array){
 
   var temp = 0;
-  for(var i = 1; i < array.length; i++){
+  var i = 0;
+  var j = 0;
 
-    while( (array[tally] >= 0) && (array[tally] > temp) ){
+  for(i = 1; i < array.length; i++){
+
+    temp = array[i];
+    j = i - 1;
+
+    while( j >= 0 && (array[j] > temp) ){
+
+      array[j+1] = array[j];
+
+      j = j - 1;
 
     }
-
+    array[j+1] = temp;
   }
 
 };
 
 var selectionsort = function(array){
 
-  for(var i = 0; i < array.length; i++){
+  var i = 0;
+  var j = 0;
+  var lowerBound = 0;
+  var temp = 0;
 
-    for(var j = i+1; j < array.length; j++){
+  for(i = 0; i < array.length; i++){
 
+    lowerBound = i;
+
+    for(j = i+1; j < array.length; j++){
+      if( array[j] < array[lowerBound]){
+        lowerBound = j;
+      }
     }
+
+    temp = array[lowerBound];
+    array[lowerBound] = array[i];
+    array[i] = temp;
+
   }
 
 };

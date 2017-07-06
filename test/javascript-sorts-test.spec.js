@@ -32,12 +32,14 @@ describe('JavaScript Sorts', function(){
 
   it('should insertionsort an evil array', function(){
     var insertionArray = [10, 9 , 8 ,7, 6, 5, 4, 3, 2, 1];
+    module.insertionsort(insertionArray);
     expect(insertionArray[(insertionArray.length - 1)]).to.equal(10);
     expect(insertionArray).to.deep.equal([1,2,3,4,5,6,7,8,9,10]);
   });
 
   it('should selectionsort an evil array', function(){
     var selectionArray = [10, 9 , 8 ,7, 6, 5, 4, 3, 2, 1];
+    module.selectionsort(selectionArray);
     expect(selectionArray[(selectionArray.length - 1)]).to.equal(10);
     expect(selectionArray).to.deep.equal([1,2,3,4,5,6,7,8,9,10]);
   });
